@@ -12,7 +12,6 @@ on:
     branches: 
       - development
       - a_feature
-  workflow_dispatch:
 
 env:
   env_name: "*${{ vars.ENVIRONMENTNAME }}*"  
