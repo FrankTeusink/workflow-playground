@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 env:
-  env_name: ${{ vars.ENVIRONMENTNAME }}
+  env_name: "*${{ vars.ENVIRONMENTNAME }}*"  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
