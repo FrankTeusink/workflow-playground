@@ -14,7 +14,7 @@ on:
       - a_feature
 
 env:
-  env_name: "*${{ vars.ENVIRONMENTNAME }}*"  
+  workflow_variable: "workflow value"  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -23,18 +23,19 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    job_variable: "job value"  
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       #- uses: actions/checkout@v3
 
       - name: Echoing variables
+        step_variable: "step value"  
         run: |
-          echo Echoing GITHUB_REPOSITORY * ${{ vars.GITHUB_REPOSITORY }} * 
-          echo Echoing env_name * ${{ vars.env_name }} * 
-          echo "Echoing ENVIRONMENTNAME * ${{ vars.ENVIRONMENTNAME }} *" 
-          echo "Echoing VNAME * ${{ vars.VNAME }} *" 
-          echo "Echoing ASECRET * ${{ secrets.ASECRET }} *" 
+          echo Echoing workflow_variable * $workflow_variable *
+          echo Echoing job_variable * $job_variable * 
+          echo Echoing step_variable * $step_variable * 
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
