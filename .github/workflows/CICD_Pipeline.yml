@@ -44,7 +44,6 @@ jobs:
           echo Echoing github.actor * ${{ github.actor }} *
           echo Echoing github.base_ref * ${{ github.base_ref }} *
           echo Echoing github.ref_name * ${{ github.ref_name }} *
-          echo Echoing github.ref_name * ${{ github.ref_name }} *
           echo Echoing github.repository * ${{ github.repository }} *
           echo Echoing github.run_id * ${{ github.run_id }} *
           echo Echoing github.workflow * ${{ github.workflow }} *
