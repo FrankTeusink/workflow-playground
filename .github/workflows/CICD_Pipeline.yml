@@ -41,11 +41,23 @@ jobs:
 
       - name: Echoing github context variables
         run: |
-          echo Echoing github.action * ${{ github.action }} *
-          echo Echoing github.action_path * ${{ github.action_path }} *
           echo Echoing github.actor * ${{ github.actor }} *
           echo Echoing github.base_ref * ${{ github.base_ref }} *
-          echo Echoing github.ref * ${{ github.ref }} *
+          echo Echoing github.ref_name * ${{ github.ref_name }} *
+          echo Echoing github.ref_name * ${{ github.ref_name }} *
+          echo Echoing github.repository * ${{ github.repository }} *
+          echo Echoing github.run_id * ${{ github.run_id }} *
+          echo Echoing github.workflow * ${{ github.workflow }} *
+
+      - name: Echoing vars context variables
+        run: |
+          echo Echoing vars.VNAME * ${{ vars.VNAME }} *
+          echo Echoing vars.ASECRET * ${{ vars.ASECRET }} *
+
+      - name: Echoing secrets context variables
+        run: |
+          echo Echoing secrets.VNAME * ${{ secrets.VNAME }} *
+          echo Echoing secrets.ASECRET * ${{ secrets.ASECRET }} *
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
