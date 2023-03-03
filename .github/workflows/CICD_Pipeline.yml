@@ -53,6 +53,14 @@ jobs:
           echo Echoing vars.VNAME * ${{ vars.VNAME }} *
           echo Echoing vars.ASECRET * ${{ vars.ASECRET }} *
 
+      - name: Echoing vars context variables via env
+        env:
+          VNAME: ${{ vars.VNAME }}
+          ASECRET: ${{ vars.ASECRET }}
+        run: |
+          echo Echoing vars.VNAME * $VNAME *
+          echo Echoing vars.ASECRET * $ASECRET *
+
       - name: Echoing secrets context variables
         run: |
           echo Echoing secrets.VNAME * ${{ secrets.VNAME }} *
