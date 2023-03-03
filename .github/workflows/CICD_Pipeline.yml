@@ -63,7 +63,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: Staging
-    needs: Development
+    # needs: Development
 
     env:
       job_variable: "job value"  
@@ -97,6 +97,4 @@ jobs:
       - name: Echoing secrets context variables
         run: |
           echo Echoing secrets.ASECRET * ${{ secrets.ASECRET }} *
-
-
 
