@@ -30,4 +30,4 @@ jobs:
     uses: ./.github/workflows/Deploy_workflow.yml
       with:
         environment: Staging
-        runif: false #github.ref_name == 'development'
+        runif: github.ref_name == 'development'
