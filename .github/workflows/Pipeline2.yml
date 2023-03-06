@@ -27,7 +27,8 @@ jobs:
         runif: true
 
   Staging:
+    if: github.ref_name == 'development'
     uses: ./.github/workflows/Deploy_workflow.yml
       with:
         environment: Staging
-        runif: github.ref_name == 'development'
+        runif: true
