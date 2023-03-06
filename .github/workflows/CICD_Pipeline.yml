@@ -57,6 +57,8 @@ jobs:
       - name: Echoing secrets context variables
         run: |
           echo Echoing secrets.ASECRET * ${{ secrets.ASECRET }} *
+      
+      - uses: log_vars_action
 
 
   Staging:

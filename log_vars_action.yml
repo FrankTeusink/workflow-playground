@@ -1,0 +1,19 @@
+name: Log Actions
+runs:
+  using: "composite"
+  steps:
+    - name: Echoing variables
+      env:
+        step_variable: "step value"  
+      run: |
+        echo Echoing workflow_variable * $workflow_variable *
+        echo Echoing job_variable * $job_variable * 
+        echo Echoing step_variable * $step_variable * 
+     - name: Echoing github context variables
+      run: |
+        echo Echoing github.actor * ${{ github.actor }} *
+        echo Echoing github.base_ref * ${{ github.base_ref }} *
+        echo Echoing github.ref_name * ${{ github.ref_name }} *
+        echo Echoing github.repository * ${{ github.repository }} *
+        echo Echoing github.run_id * ${{ github.run_id }} *
+        echo Echoing github.workflow * ${{ github.workflow }} *
