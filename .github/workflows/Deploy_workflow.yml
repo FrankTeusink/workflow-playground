@@ -10,6 +10,10 @@ on:
         description: environment to deploy to
         required: true
         type: string
+      runif: 
+        description: flag indicati
+        required: true
+        type: bool
 
 env:
   workflow_variable: "workflow value"  
@@ -19,6 +23,7 @@ jobs:
   
   # This workflow contains a single job called "build"
   Development:
+    if: ${{ inputs.runif }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
