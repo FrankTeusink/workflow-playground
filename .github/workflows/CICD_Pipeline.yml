@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CICD Pipeline
+name: Test Workflow
 
 # Controls when the workflow will run
 on:
@@ -19,6 +19,11 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   
+  Development:
+    uses: ./.github/workflows/Deploy_workflow.yml
+    with:
+      env_name: Local
+
   Development:
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
