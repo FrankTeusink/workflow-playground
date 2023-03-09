@@ -22,13 +22,13 @@ jobs:
   # This workflow contains a single job called "build"
   Development:
     uses: ./.github/workflows/Deploy_workflow.yml
-      with:
-        env_name: Development
-        run_if: true
+    with:
+      env_name: Development
+      run_if: true
 
 #  Staging:
 #    if: github.ref_name == 'development'
 #    uses: ./.github/workflows/Deploy_workflow.yml
-#      with:
-#        environment: Staging
-#        runif: true
+#    with:
+#      environment: Staging
+#      runif: true
