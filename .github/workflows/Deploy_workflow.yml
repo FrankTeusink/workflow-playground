@@ -10,10 +10,6 @@ on:
         description: environment to deploy to
         required: true
         type: string
-      run_if: 
-        description: flag indicati
-        required: true
-        type: boolean
 
 env:
   workflow_variable: "workflow value"  
@@ -22,8 +18,7 @@ env:
 jobs:
   
   # This workflow contains a single job called "build"
-  Echo Variables:
-    if: ${{ inputs.run_if }}
+  EchoVariables:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: ${{ inputs.env_name }}
