@@ -22,7 +22,7 @@ jobs:
   Local:
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
-      env_name: Local
+      env_name: Local${{ github.actor }}
 
   Development:
     uses: ./.github/workflows/Deploy_workflow.yml
