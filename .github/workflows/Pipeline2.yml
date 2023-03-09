@@ -23,12 +23,12 @@ jobs:
   Development:
     uses: ./.github/workflows/Deploy_workflow.yml
       with:
-        environment: Development
-        runif: true
-        
-  Staging:
-    if: github.ref_name == 'development'
-    uses: ./.github/workflows/Deploy_workflow.yml
-      with:
-        environment: Staging
-        runif: true
+        env_name: Development
+        run_if: true
+
+#  Staging:
+#    if: github.ref_name == 'development'
+#    uses: ./.github/workflows/Deploy_workflow.yml
+#      with:
+#        environment: Staging
+#        runif: true
