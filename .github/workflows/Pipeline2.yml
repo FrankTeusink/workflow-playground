@@ -25,9 +25,8 @@ jobs:
       with:
         environment: Development
         runif: true
-
+        
   Staging:
-    needs: Development
     if: github.ref_name == 'development'
     uses: ./.github/workflows/Deploy_workflow.yml
       with:
