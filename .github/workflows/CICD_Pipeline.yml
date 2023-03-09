@@ -28,6 +28,7 @@ jobs:
       - name: Pre Echoing variables
         run: |
           echo Echoing github.actor * ${{ github.actor }} *
+          echo Echoing vars.env_name * ${{ vars.env_name }} *
           echo Echoing vars.is_local_env * ${{ vars.is_local_env }} *
 
   Local:
