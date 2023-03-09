@@ -25,11 +25,13 @@ jobs:
       env_name: Local${{ github.actor }}
 
   Development:
+    needs: Local
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       env_name: Development
 
   Staging:
+    needs: Development
     if: github.ref_name == 'development'
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
