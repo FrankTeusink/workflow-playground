@@ -13,7 +13,7 @@ on:
       run_if: 
         description: flag indicati
         required: true
-        type: bool
+        type: boolean
 
 env:
   workflow_variable: "workflow value"  
