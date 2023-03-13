@@ -38,7 +38,7 @@ jobs:
   Local:
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
-      env_name: Local${{ github.actor }}
+      env_name: 'Local${{ github.actor }}'
 
   Development:
     needs: Local
