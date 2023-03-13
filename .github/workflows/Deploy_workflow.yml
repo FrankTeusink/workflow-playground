@@ -22,8 +22,8 @@ jobs:
     environment: ${{ inputs.environment_name }}
     if: ${{ inputs.environment_name }} == ${{ vars.environment_name }}
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
 
+    runs-on: ubuntu-latest
     env:
       job_variable: "job value"  
 
@@ -33,7 +33,6 @@ jobs:
       #- uses: actions/checkout@v3
 
       - name: Echoing variables
-        if: ${{ vars.environment_name }}
         env:
           step_variable: "step value"  
         run: |
