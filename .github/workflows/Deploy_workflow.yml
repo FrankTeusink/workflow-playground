@@ -6,8 +6,8 @@ name: Deploy workflow
 on:
   workflow_call:
     inputs:
-      env_name:
-        description: environment to deploy to
+      environment_name:
+        description: Name of the environment to which is deployed
         required: true
         type: string
 
@@ -19,7 +19,8 @@ jobs:
   
   # This workflow contains a single job called "build"
   EchoVariables:
-    environment: ${{ inputs.env_name }}
+    environment: ${{ inputs.environment_name }}
+    if: ${{ inputs.environment_name }} == ${{ vars.environment_name }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -32,6 +33,7 @@ jobs:
       #- uses: actions/checkout@v3
 
       - name: Echoing variables
+        if: ${{ vars.environment_name }}
         env:
           step_variable: "step value"  
         run: |
@@ -46,11 +48,8 @@ jobs:
           echo Echoing github.workflow * ${{ github.workflow }} *
           echo Echoing inputs.env_name * ${{ inputs.env_name }} *
           echo Echoing vars.AVARIABLE * ${{ vars.AVARIABLE }} *
-          echo Echoing inputs.env_name * ${{ inputs.env_name }} *
-          echo Echoing env.env_name * ${{ env.env_name }} *
-          echo Echoing vars.env_name * ${{ vars.env_name }} *
-          echo Echoing vars.is_local_env * ${{ vars.is_local_env }} *
-          echo Echoing vars.is_ladida * ${{ vars.is_ladida }} *
+          echo Echoing inputs.environment_name * ${{ inputs.environment_name }} *
+          echo Echoing vars.environment_name * ${{ vars.environment_name }} *
           echo Echoing secrets.ASECRET * ${{ secrets.ASECRET }} *
       
 
