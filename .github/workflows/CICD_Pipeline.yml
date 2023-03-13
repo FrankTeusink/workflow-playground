@@ -6,7 +6,7 @@ name: CICD Pipeline
 on:
   push:
     branches: 
-      - development
+      - development 
       - a_feature
   pull_request:
     branches: 
