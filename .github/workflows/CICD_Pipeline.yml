@@ -19,23 +19,8 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  # This workflow contains a single job called "build"
-  PreEchoVariables:
-    environment: 'Local${{ github.actor }}'
-    env:
-      env_name: Local${{ github.actor }} 
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    steps:
-      - name: Pre Echoing variables
-        run: |
-          echo Echoing github.actor * ${{ github.actor }} *
-          echo Echoing env.env_name * ${{ env.env_name }} *
-          echo Echoing vars.env_name * ${{ vars.env_name }} *
-          echo Echoing vars.is_local_env * ${{ vars.is_local_env }} *
-          echo Echoing vars.is_ladida * ${{ vars.is_ladida }} *
-
   Local:
+    environment: 'Local${{ github.actor }}' 
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       env_name: 'Local${{ github.actor }}'
