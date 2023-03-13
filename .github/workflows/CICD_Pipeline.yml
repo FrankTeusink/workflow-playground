@@ -18,14 +18,19 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  
-  # This workflow contains a single job called "build"
+
+  Local:
+    uses: ./.github/workflows/Deploy_workflow.yml
+    with:
+      env_name: 'Local${{ github.actor }}'
+
   Development:
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       env_name: Development
 
   Staging:
+    needs: Development
     if: github.ref_name == 'development'
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
