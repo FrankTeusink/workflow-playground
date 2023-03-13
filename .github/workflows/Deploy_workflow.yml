@@ -20,7 +20,7 @@ jobs:
   # This workflow contains a single job called "build"
   EchoVariables:
     environment: ${{ inputs.environment_name }}
-    if: vars.environment_name # == vars.environment_name }}
+    if: ${{ vars.environment_name }} # == vars.environment_name }}
 
     runs-on: ubuntu-latest
     env:
