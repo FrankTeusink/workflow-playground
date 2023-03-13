@@ -6,8 +6,8 @@ name: Deploy workflow
 on:
   workflow_call:
     inputs:
-      env_name:
-        description: environment to deploy to
+      environment_name:
+        description: Name of the environment to which is deployed
         required: true
         type: string
 
