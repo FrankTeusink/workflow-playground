@@ -12,6 +12,7 @@ on:
     branches: 
       - development
       - a_feature
+  workflow_dispatch:
 
 env:
   workflow_variable: "workflow value"  
