@@ -20,10 +20,10 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  Local:
-    uses: ./.github/workflows/Deploy_workflow.yml
-    with:
-      environment_name: 'Local${{ github.actor }}'
+  #Local:
+  #  uses: ./.github/workflows/Deploy_workflow.yml
+  #  with:
+  #    environment_name: 'Local${{ github.actor }}'
 
   Development:
     uses: ./.github/workflows/Deploy_workflow.yml
