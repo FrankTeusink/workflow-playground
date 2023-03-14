@@ -28,6 +28,6 @@ jobs:
     steps:
       - name: Echo
         run: |
-          echo Deploying to ${{ inputs.environment_name }}
+          echo Deploying to ${{ inputs.environment_name }} ...
 
 
