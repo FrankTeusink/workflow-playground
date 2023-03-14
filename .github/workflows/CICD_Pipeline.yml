@@ -27,12 +27,12 @@ jobs:
       - name: Echoing variables
         run: |
           echo Echoing github.actor * ${{ github.actor }} *
-          echo Echoing vars.environment_name * ${{ vars.environment_name }} *
+          echo Echoing vars.environment_name * Local${{ github.actor }} *
 
-  #Local:
-  #  uses: ./.github/workflows/Deploy_workflow.yml
-  #  with:
-  #    environment_name: 'Local${{ github.actor }}'
+  Local:
+    uses: ./.github/workflows/Deploy_workflow.yml
+    with:
+      environment_name: 'Local${{ github.actor }}'
 
   Development:
     uses: ./.github/workflows/Deploy_workflow.yml
