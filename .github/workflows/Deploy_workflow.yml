@@ -26,7 +26,7 @@ jobs:
       
   Deploy:
     environment: '${{ inputs.environment_name }}'
-    if: ${{ vars.ENVIRONMENT_NAME == inputs.environment_name }}
+    if: ${{ vars.ENVIRONMENT_NAME == 'Development' }}
     runs-on: ubuntu-latest
     steps:
       - name: Echo
