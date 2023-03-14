@@ -9,8 +9,6 @@ on:
         type: string
 
 jobs:
-  env:
-    do_deploy2: ${{ vars.ENVIRONMENT_NAME == inputs.environment_name }}
 
   EchoVariables:
     environment: '${{ inputs.environment_name }}'
@@ -28,6 +26,8 @@ jobs:
       
   Deploy:
     environment: '${{ inputs.environment_name }}'
+    env:
+      do_deploy2: ${{ vars.ENVIRONMENT_NAME == inputs.environment_name }}
     if: ${{ env.do_deploy2 }}
     runs-on: ubuntu-latest
     steps:
