@@ -15,7 +15,7 @@ on:
 jobs:
 
   PreEcho:
-    environment: Development
+    environment: 'Local${{ github.actor }}'
     runs-on: ubuntu-latest
     steps:
       - name: Echoing variables
