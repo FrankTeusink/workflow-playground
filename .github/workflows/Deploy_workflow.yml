@@ -21,16 +21,13 @@ jobs:
           echo Echoing github.actor * ${{ github.actor }} *
           echo Echoing inputs.environment_name * ${{ inputs.environment_name }} *
           echo Echoing vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
-          echo Echoing env.do_deploy1 * ${{ env.do_deploy1 }} *
-          echo Echoing env.do_deploy2 * ${{ vars.ENVIRONMENT_NAME == inputs.environment_name }} *
       
   Deploy:
     environment: '${{ inputs.environment_name }}'
-    if: ${{ vars.ENVIRONMENT_VARIABLE == 'Development' }}
     runs-on: ubuntu-latest
     steps:
       - name: Echo
         run: |
-          echo Deploying....
+          echo Deploying to ${{ inputs.environment_name }}
 
 
