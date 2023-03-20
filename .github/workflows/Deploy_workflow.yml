@@ -1,6 +1,6 @@
 name: Deploy workflow
 
-on:
+on:  
   workflow_call:
     inputs:
       environment_name:
