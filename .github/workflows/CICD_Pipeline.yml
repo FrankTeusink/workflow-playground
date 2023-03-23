@@ -1,37 +1,42 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CICD Pipeline
 
-# Controls when the workflow will run
 on:
   push:
     branches: 
-      - development
+      - development 
       - a_feature
   pull_request:
     branches: 
       - development
       - a_feature
+  workflow_dispatch:
 
-env:
-  workflow_variable: "workflow value"  
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
+  #PreEcho:
+  #  environment: 'Local${{ github.actor }}'
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Echoing variables
+  #      run: |
+  #        echo Echoing github.actor * ${{ github.actor }} *
+  #        echo Echoing used local environment_name * Local${{ github.actor }} *
+  #        echo Echoing Development vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
 
   Local:
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
-      env_name: 'Local${{ github.actor }}'
+      environment_name: 'Local${{ github.actor }}'
 
   Development:
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
-      env_name: Development
+      environment_name: Development
 
   Staging:
     needs: Development
     if: github.ref_name == 'development'
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
-      env_name: Staging
+      environment_name: Staging
