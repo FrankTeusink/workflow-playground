@@ -26,12 +26,6 @@ jobs:
           else
             echo "defined=false" >> $GITHUB_OUTPUT;
           fi
-      #- name: Echoing variables
-      #  run: |
-      #    echo Echoing github.actor * ${{ github.actor }} *
-      #    echo Echoing environment-ok * ${{ needs.CheckEnvironment.outputs.environment-ok }} *
-      #    echo Echoing inputs.environment_name * ${{ inputs.environment_name }} *
-      #    echo Echoing vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
 
   Deploy:
     environment: '${{ inputs.environment_name }}'
@@ -39,7 +33,14 @@ jobs:
     if: needs.CheckEnvironment.outputs.environment-ok == 'true'
     runs-on: ubuntu-latest
     steps:
-      - name: Echo
+      - name: Echoing variables
+        run: |
+          echo Echoing github.actor * ${{ github.actor }} *
+          echo Echoing github.ref_name * ${{ github.ref_name }} *
+          echo Echoing inputs.environment_name * ${{ inputs.environment_name }} *
+          echo Echoing vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
+          echo Echoing environment-ok * ${{ needs.CheckEnvironment.outputs.environment-ok }} *
+      - name: Deploy steps
         run: |
           echo Deploying to ${{ inputs.environment_name }} ...
           echo Environment variable vars.ENVIRONMENT_NAME has value * ${{ vars.ENVIRONMENT_NAME }} *
