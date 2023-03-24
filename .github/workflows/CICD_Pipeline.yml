@@ -3,33 +3,25 @@ name: CICD Pipeline
 on:
   push:
     branches: 
-      - development 
-      - a_feature
+      - development
+      - 'feature/**'
   pull_request:
     branches: 
       - development
-      - a_feature
+      - 'feature/**'
   workflow_dispatch:
 
 
 jobs:
 
-  #PreEcho:
-  #  environment: 'Local${{ github.actor }}'
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - name: Echoing variables
-  #      run: |
-  #        echo Echoing github.actor * ${{ github.actor }} *
-  #        echo Echoing used local environment_name * Local${{ github.actor }} *
-  #        echo Echoing Development vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
-
   Local:
+    if: startsWith(github.ref_name, 'feature/')
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: 'Local${{ github.actor }}'
 
   Development:
+    if: github.ref_name == 'development'
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: Development
