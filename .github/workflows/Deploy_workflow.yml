@@ -16,7 +16,6 @@ jobs:
     outputs:
       environment-ok: ${{ steps.my-environment-check.outputs.defined }}
     steps:
-    steps:
       - name: Check for Environment availability
         id: my-environment-check
         # perform check & put boolean result as an output
