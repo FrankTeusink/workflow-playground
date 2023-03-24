@@ -21,7 +21,7 @@ jobs:
         # perform check & put boolean result as an output
         shell: bash
         run: |
-          if [ "${{ vars.ENVIRONMENT_NAME }}" != ${{ input.environment_name }} ]; then
+          if [ "${{ vars.ENVIRONMENT_NAME }}" != ${{ inputs.environment_name }} ]; then
             echo "defined=true" >> $GITHUB_OUTPUT;
           else
             echo "defined=false" >> $GITHUB_OUTPUT;
