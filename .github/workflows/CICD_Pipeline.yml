@@ -25,11 +25,13 @@ jobs:
           echo Echoing Development vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
 
   Local:
+    needs: PreEcho
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: 'Local${{ github.actor }}'
 
   Development:
+    needs: Local
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: Development
