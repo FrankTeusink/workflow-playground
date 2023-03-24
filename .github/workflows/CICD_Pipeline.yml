@@ -14,22 +14,13 @@ on:
 
 jobs:
 
-  #PreEcho:
-  #  environment: 'Local${{ github.actor }}'
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - name: Echoing variables
-  #      run: |
-  #        echo Echoing github.actor * ${{ github.actor }} *
-  #        echo Echoing used local environment_name * Local${{ github.actor }} *
-  #        echo Echoing Development vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
-
   Local:
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: 'Local${{ github.actor }}'
 
   Development:
+    needs: Local
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: Development
