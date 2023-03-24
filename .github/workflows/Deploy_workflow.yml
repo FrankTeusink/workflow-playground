@@ -16,6 +16,7 @@ jobs:
     outputs:
       environment-ok: ${{ steps.my-environment-check.outputs.defined }}
     steps:
+    steps:
       - name: Check for Environment availability
         id: my-environment-check
         # perform check & put boolean result as an output
@@ -26,21 +27,13 @@ jobs:
           else
             echo "defined=false" >> $GITHUB_OUTPUT;
           fi
+      #- name: Echoing variables
+      #  run: |
+      #    echo Echoing github.actor * ${{ github.actor }} *
+      #    echo Echoing environment-ok * ${{ needs.CheckEnvironment.outputs.environment-ok }} *
+      #    echo Echoing inputs.environment_name * ${{ inputs.environment_name }} *
+      #    echo Echoing vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
 
-  EchoVariables:
-    environment: '${{ inputs.environment_name }}'
-    needs: [CheckEnvironment]
-    env:
-      do_deploy1: ${{ vars.ENVIRONMENT_NAME == inputs.environment_name }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Echoing variables
-        run: |
-          echo Echoing github.actor * ${{ github.actor }} *
-          echo Echoing environment-ok * ${{ needs.CheckEnvironment.outputs.environment-ok }} *
-          echo Echoing inputs.environment_name * ${{ inputs.environment_name }} *
-          echo Echoing vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
-      
   Deploy:
     environment: '${{ inputs.environment_name }}'
     needs: [CheckEnvironment]
