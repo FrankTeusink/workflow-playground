@@ -15,12 +15,13 @@ on:
 jobs:
 
   Local:
+    if: startsWith(github.ref_name, 'feature/')
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: 'Local${{ github.actor }}'
 
   Development:
-    needs: Local
+    if: github.ref_name == 'development'
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: Development
