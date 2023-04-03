@@ -7,7 +7,7 @@ on:
 
 jobs:
   azure-connect:
-    environment: AzureConnect
+    environment: ConnectAzure
     runs-on: ubuntu-latest
     steps:
       - name: Log in with Azure
