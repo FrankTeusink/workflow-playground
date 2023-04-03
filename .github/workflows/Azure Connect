@@ -1,0 +1,20 @@
+name: Azure Connect
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  azure-connect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+      - name: Azure PowerShell Action
+        uses: Azure/powershell@v1
+        with:
+          inlineScript: Get-AzResourceGroup -Name "VisualStudioOnline-9E00E7D74D544D068151FEA4A5C21C76"
+          azPSVersion: "latest"      
+      
