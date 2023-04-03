@@ -1,6 +1,7 @@
 name: Azure Connect
 
 on:
+  push:
   workflow_dispatch:
 
 
