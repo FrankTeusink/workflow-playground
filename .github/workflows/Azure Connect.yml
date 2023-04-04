@@ -7,7 +7,7 @@ on:
 
 jobs:
   azure-connect:
-    environment: ConnectAzure
+    environment: Local${{github.actor}}
     runs-on: ubuntu-latest
     steps:
       - name: Log in with Azure
