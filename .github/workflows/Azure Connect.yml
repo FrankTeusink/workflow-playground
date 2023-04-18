@@ -19,7 +19,7 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            az account show
+            az group list --query [].name
       - name: Azure PowerShell Action
         uses: Azure/powershell@v1
         with:
