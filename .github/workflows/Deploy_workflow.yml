@@ -40,9 +40,13 @@ jobs:
           echo Echoing inputs.environment_name * ${{ inputs.environment_name }} *
           echo Echoing vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
           echo Echoing environment-ok * ${{ needs.CheckEnvironment.outputs.environment-ok }} *
+          echo Echoing github.workspace * ${{ github.workspace }} *
+          echo Echoing runner.temp * ${{ runner.temp }} *
       - name: Deploy steps
         run: |
           echo Deploying to ${{ inputs.environment_name }} ...
           echo Environment variable vars.ENVIRONMENT_NAME has value * ${{ vars.ENVIRONMENT_NAME }} *
+          envsubst < ${{ github.workspace }}/k8s_manifest_templates/enroll-ingress-template.yaml > ${{ runner.temp }}/enroll-ingress-template.yaml
+          cat ${{ runner.temp }}//enroll-ingress-template.yaml
 
 
