@@ -1,9 +1,14 @@
-# 
+# Variables:
+#   enroll_name       : ${enroll_name}
+#                     : enroll
+#   rap_domain        : ${rap_domain} 
+#                     : rap.tarski.nl
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: enroll-ingress
-  namespace: ${enroll_namespace}
+  namespace: ${enroll_name}
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -11,10 +16,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - enroll.rap.tarski.nl
-      secretName: enroll-tls
+        - ${enroll_name}.${rap_domain}
+      secretName: ${enroll_name}-tls
   rules:
-    - host: enroll.rap.tarski.nl
+    - host: ${enroll_name}.${rap_domain}
       http:
         paths:
           - pathType: ImplementationSpecific
