@@ -1,7 +1,7 @@
 # Variables:
 #   enroll_name       : ${vars.enroll_name}
 #                     : enroll
-#   rap_domain        : ${RAP_DOMAIN} 
+#   rap_domain        : ${DOMAIN_NAME} 
 #                     : rap.tarski.nl
 
 apiVersion: networking.k8s.io/v1
