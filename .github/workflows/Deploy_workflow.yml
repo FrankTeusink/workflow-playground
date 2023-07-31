@@ -42,6 +42,7 @@ jobs:
           echo Echoing environment-ok * ${{ needs.CheckEnvironment.outputs.environment-ok }} *
           echo Echoing github.workspace * ${{ github.workspace }} *
           echo Echoing runner.temp * ${{ runner.temp }} *
+      - uses: actions/checkout@v3      
       - name: Deploy steps
         run: |
           echo Deploying to ${{ inputs.environment_name }} ...
