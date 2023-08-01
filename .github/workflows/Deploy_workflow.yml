@@ -40,6 +40,7 @@ jobs:
     steps:
       - name: Echoing variables
         run: |
+          echo Echoing vars.ENVIRONMENT_NAME: ${{ vars.ENVIRONMENT_NAME }}
           echo Echoing secrets.FRANKIES_SECRET: ${{ secrets.FRANKIES_SECRET }}
           echo Echoing env.XXX: ${{ env.XXX }}
       - uses: actions/checkout@v3      
