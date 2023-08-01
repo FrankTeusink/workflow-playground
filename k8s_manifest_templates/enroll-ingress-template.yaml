@@ -1,5 +1,5 @@
 # Variables:
-#   enroll_name       : ${vars.enroll_name}
+#   enroll_name       : ${ENROLL_NAME}
 #                     : enroll
 #   rap_domain        : ${DOMAIN_NAME} 
 #                     : rap.tarski.nl
