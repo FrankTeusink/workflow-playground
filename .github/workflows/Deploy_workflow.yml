@@ -32,14 +32,19 @@ jobs:
     needs: [CheckEnvironment]
     if: needs.CheckEnvironment.outputs.environment-ok == 'true'
     runs-on: ubuntu-latest
+    env:
+      XXX: ${{ secrets.FRANKIES_SECRET }}
     steps:
       - name: Echoing variables
         run: |
-          echo Echoing github.actor * ${{ github.actor }} *
-          echo Echoing github.ref_name * ${{ github.ref_name }} *
-          echo Echoing inputs.environment_name * ${{ inputs.environment_name }} *
-          echo Echoing vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
-          echo Echoing environment-ok * ${{ needs.CheckEnvironment.outputs.environment-ok }} *
+          echo Echoing github.actor: ${{ github.actor }}
+          echo Echoing github.ref_name: ${{ github.ref_name }}
+          echo Echoing inputs.environment_name: ${{ inputs.environment_name }}
+          echo Echoing vars.ENVIRONMENT_NAME: ${{ vars.ENVIRONMENT_NAME }}
+          echo Echoing environment-ok: ${{ needs.CheckEnvironment.outputs.environment-ok }}
+          echo Echoing secrets.FRANKIES_SECRET: ${{ secrets.FRANKIES_SECRET }}
+          echo Echoing XXX: ${{ XXX }}
+          echo Echoing env.XXX: ${{ env.XXX }}
       - name: Deploy steps
         run: |
           echo Deploying to ${{ inputs.environment_name }} ...
