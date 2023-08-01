@@ -33,21 +33,16 @@ jobs:
       ENROLL_NAME: ${{ vars.enroll_name }}
       RAP_NAME: ${{ vars.rap_name }}
       DOMAIN_NAME: ${{ vars.domain_name }}
+      XXX: ${{ secrets.FRANKIES_SECRET }}
     needs: [CheckEnvironment]
     if: needs.CheckEnvironment.outputs.environment-ok == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Echoing variables
         run: |
-          echo Echoing github.actor * ${{ github.actor }} *
-          echo Echoing github.ref_name * ${{ github.ref_name }} *
-          echo Echoing inputs.environment_name * ${{ inputs.environment_name }} *
-          echo Echoing vars.ENVIRONMENT_NAME * ${{ vars.ENVIRONMENT_NAME }} *
-          echo Echoing environment-ok * ${{ needs.CheckEnvironment.outputs.environment-ok }} *
-          echo Echoing github.workspace * ${{ github.workspace }} *
-          echo Echoing runner.temp * ${{ runner.temp }} *
-          echo Echoing vars.enroll_name * ${{ vars.enroll_name }} *
-          echo Echoing vars.domain_name * ${{ vars.domain_name }} *
+          echo Echoing secrets.FRANKIES_SECRET: ${{ secrets.FRANKIES_SECRET }}
+          echo Echoing XXX: ${{ XXX }}
+          echo Echoing env.XXX: ${{ env.XXX }}
       - uses: actions/checkout@v3      
       - name: Deploy steps
         run: |
