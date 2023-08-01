@@ -1,7 +1,7 @@
 # Variables:
-#   rap_name          : ${rap_name}
+#   rap_name          : ${RAP_NAME}
 #                     : rap
-#   rap_domain        : ${rap_domain} 
+#   rap_domain        : ${DOMAIN_NAME} 
 #                     : rap.tarski.nl
 
 apiVersion: networking.k8s.io/v1
