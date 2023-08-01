@@ -11,17 +11,23 @@ on:
       - 'feature/**'
   workflow_dispatch:
 
-env:
-  frankies_secret: ${{ secrets.FRANKIES_SECRET }}
-
 jobs:
+  PreCheck:
+    runs-on: ubuntu-latest
+    env:
+      XXX: ${{ secrets.FRANKIES_SECRET}}
+    steps:
+      - name: Echoing variables
+        run: |
+          echo Echoing vars.enroll_name: ${{ vars.enroll_name }}
+          echo Echoing vars.domain_name: ${{ vars.domain_name }}
+          echo Echoing XXX: ${{ env.xxx }}
 
   Local:
     if: startsWith(github.ref_name, 'feature/')
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: 'Local${{ github.actor }}'
-      frankies_secret: '${{ env.FRANKIES_SECRET }}'
 
   Development:
     if: github.ref_name == 'development'
