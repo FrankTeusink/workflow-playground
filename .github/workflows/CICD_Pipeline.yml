@@ -19,6 +19,7 @@ jobs:
     uses: ./.github/workflows/Deploy_workflow.yml
     with:
       environment_name: 'Local${{ github.actor }}'
+      frankies_secret: ${{ secrets.FRANKIES_SECRET}}
 
   Development:
     if: github.ref_name == 'development'
