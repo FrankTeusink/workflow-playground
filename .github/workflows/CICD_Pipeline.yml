@@ -13,6 +13,7 @@ on:
 
 jobs:
   PreCheck:
+    environment: LocalFrankTeusink
     runs-on: ubuntu-latest
     env:
       XXX: ${{ secrets.FRANKIES_SECRET}}
