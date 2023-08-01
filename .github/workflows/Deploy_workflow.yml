@@ -7,6 +7,10 @@ on:
         description: Name of the environment to which is deployed
         required: true
         type: string
+      frankies_secret:
+        description: frankies secret
+        required: false
+        type: string
 
 jobs:
 
@@ -33,7 +37,7 @@ jobs:
       ENROLL_NAME: ${{ vars.enroll_name }}
       RAP_NAME: ${{ vars.rap_name }}
       DOMAIN_NAME: ${{ vars.domain_name }}
-      XXX: ${{ secrets.FRANKIES_SECRET }}
+      XXX: ${{ inputs.FRANKIES_SECRET }}
     needs: [CheckEnvironment]
     if: needs.CheckEnvironment.outputs.environment-ok == 'true'
     runs-on: ubuntu-latest
@@ -41,6 +45,7 @@ jobs:
       - name: Echoing variables
         run: |
           echo Echoing vars.ENVIRONMENT_NAME: ${{ vars.ENVIRONMENT_NAME }}
+          echo Echoing inputs.FRANKIES_SECRET: ${{ inputs.FRANKIES_SECRET }}
           echo Echoing secrets.FRANKIES_SECRET: ${{ secrets.FRANKIES_SECRET }}
           echo Echoing env.XXX: ${{ env.XXX }}
       - uses: actions/checkout@v3      
