@@ -31,6 +31,7 @@ jobs:
     environment: '${{ inputs.environment_name }}'
     env:
       ENROLL_NAME: ${{ vars.enroll_name }}
+      RAP_NAME: ${{ vars.rap_name }}
       DOMAIN_NAME: ${{ vars.domain_name }}
     needs: [CheckEnvironment]
     if: needs.CheckEnvironment.outputs.environment-ok == 'true'
